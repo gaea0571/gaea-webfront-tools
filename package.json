@@ -2,7 +2,7 @@
   "private": true,
   "name": "gaea-webfront-tools",
   "scripts": {
-    "start": "lerna run start --scope=\"spa-*-project\"",
+    "start": "lerna run start --scope=\"*-spa-project\"",
     "build:test": "lerna run build:test --scope=\"*-spa-project\"",
     "build:prod": "lerna run build:prod --scope=\"*-spa-project\"",
     "publish": "lerna run publish --scope=\"*-spa-project\"",
