@@ -1,0 +1,45 @@
+{
+  "name": "@gaea/create-slave-project",
+  "version": "1.0.0",
+  "description": "用于创建单命令行工具的脚手架",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir=dist",
+    "prepublishOnly": "npm run build && npm version major && git push"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "cli",
+    "node",
+    "cyber",
+    "shicheng.yu"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bin": "./.bin/index.js",
+  "dependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/register": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "@cyber-library/request": "^2.0.0",
+    "@cyber-tools/cli-utils": "^1.0.5",
+    "argparse": "^2.0.1",
+    "commander": "^7.2.0",
+    "deep-extend": "^0.6.0",
+    "es6-promisify": "^6.1.1",
+    "execa": "^4.0.3",
+    "glob": "^7.1.6",
+    "inquirer": "^7.3.3",
+    "jsonfile": "^6.0.1",
+    "lodash": "^4.17.20",
+    "module-alias": "^2.2.2",
+    "path-exists": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14"
+  }
+}
