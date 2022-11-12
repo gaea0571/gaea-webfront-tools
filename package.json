@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "gaea-webfront-tools",
+  "scripts": {
+    "start": "lerna run start --scope=\"spa-*-project\"",
+    "build:test": "lerna run build:test --scope=\"*-spa-project\"",
+    "build:prod": "lerna run build:prod --scope=\"*-spa-project\"",
+    "publish": "lerna run publish --scope=\"*-spa-project\"",
+    "sub:pull": "sh ./scripts/examples-pull.sh",
+    "sub:push": "sh ./scripts/examples-push.sh"
+  },
+  "workspaces": [
+    "example/*",
+    "packages/*"
+  ],
+  "devDependencies": {}
+}

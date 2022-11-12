@@ -1,0 +1,32 @@
+{
+  "npmClientArgs": [
+    "--no-package-lock"
+  ],
+  "command": {
+    "add": {
+      "exact": true,
+      "bootstrap": true
+    },
+    "run": {
+      "stream": true
+    },
+    "version": {
+      "yes": true,
+      "private": false
+    },
+    "bootstrap": {
+      "ignore": []
+    },
+    "publish": {
+      "ignore": [],
+      "private": false,
+      "ignoreChanges": [
+        "**/.bin/**"
+      ],
+      "registry": "https://registry.npmjs.org/"
+    }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "1.0.1"
+}
