@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "name": "master-spa-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development master-spa start",
+    "build:test": "cross-env NODE_ENV=test master-spa build",
+    "build:prod": "cross-env NODE_ENV=production master-spa build",
+    "publish": "http-server --cors --port 18500 assets"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@gaea/master-spa": "1.0.0",
+    "cross-env": "7.0.3"
+  },
+  "dependencies": {
+    "antd": "4.24.1",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "react-router-dom": "6.4.3"
+  }
+}
