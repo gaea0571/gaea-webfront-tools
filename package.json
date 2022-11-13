@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "gaea-webfront-tools",
+  "description": "GAEA前端工具生态",
   "scripts": {
     "start": "lerna run start --scope=\"*-spa-project\"",
     "build:test": "lerna run build:test --scope=\"*-spa-project\"",
