@@ -16,7 +16,7 @@
     "cyber",
     "shicheng.yu"
   ],
-  "author": "",
+  "author": "shicheng.yu",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.13.14",

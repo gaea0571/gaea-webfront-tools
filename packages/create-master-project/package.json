@@ -16,7 +16,7 @@
     "cyber",
     "shicheng.yu"
   ],
-  "author": "",
+  "author": "shicheng.yu",
   "license": "ISC",
   "bin": "./.bin/index.js",
   "dependencies": {
