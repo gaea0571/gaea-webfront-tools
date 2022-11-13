@@ -5,7 +5,7 @@ import { promisify } from "util";
 // import generator from "@babel/generator";
 // import { stringLiteral } from "@babel/types";
 
-const entry_template_path = path.resolve(__dirname, "../templates/entry.template.js");
+const entry_template_path = path.resolve(__dirname, "../../templates/entry.template.js");
 
 // const source_file_path = path.resolve(process.cwd(), "./src/index.js");
 const save_generate_entry_path = path.resolve(process.cwd(), "./.framework/entry.js");

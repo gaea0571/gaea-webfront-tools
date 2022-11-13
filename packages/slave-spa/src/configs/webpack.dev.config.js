@@ -10,8 +10,8 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 import webpack_basic_config from "./webpack.basic.config";
 
-const no_master_html_template = path.resolve(__dirname, "../templates/no_master_html_template.ejs");
-const with_master_html_template = path.resolve(__dirname, "../templates/with_master_html_template.ejs");
+const no_master_html_template = path.resolve(__dirname, "../../templates/no_master_html_template.ejs");
+const with_master_html_template = path.resolve(__dirname, "../../templates/with_master_html_template.ejs");
 
 export default async ({ master_provider, namespace }) => {
 

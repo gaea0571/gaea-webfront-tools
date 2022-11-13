@@ -2,9 +2,9 @@ import fs from "fs";
 import path from "path";
 import { promisify } from "util";
 
-const no_master_entry_template_path = path.resolve(__dirname, "../templates/no_master_entry.template.js");
-const with_master_entry_template_path = path.resolve(__dirname, "../templates/with_master_entry.template.js");
-const with_master_global_less_path = path.resolve(__dirname, "../templates/with_master_global_less.template.less");
+const no_master_entry_template_path = path.resolve(__dirname, "../../templates/no_master_entry.template.js");
+const with_master_entry_template_path = path.resolve(__dirname, "../../templates/with_master_entry.template.js");
+const with_master_global_less_path = path.resolve(__dirname, "../../templates/with_master_global_less.template.less");
 
 
 const source_file_path = path.resolve(process.cwd(), "./src/index.js");
