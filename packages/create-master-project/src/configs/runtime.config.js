@@ -1,4 +1,4 @@
-import {version,description} from "@@/package.json";
+import { version, description } from "@@/package.json";
 import { ArgumentParser } from "argparse";
 
 const parser = new ArgumentParser({
