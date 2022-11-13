@@ -1,6 +1,6 @@
 {
   "name": "@gaea-team/create-slave-project",
-  "version": "3.0.0",
+  "version": "2.3.0",
   "description": "用于创建单命令行工具的脚手架",
   "main": "./dist/index.js",
   "scripts": {
