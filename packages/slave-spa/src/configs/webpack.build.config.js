@@ -4,16 +4,11 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 import webpack_basic_config from "./webpack.basic.config";
 
-export default async ({ master_provider, version, namespace }) => {
-  const basic_config = webpack_basic_config({ master_provider, namespace });
+export default async ({ version, namespace, master_provider }) => {
+  const basic_config = webpack_basic_config({ version, namespace, master_provider });
 
   return merge(basic_config, {
     mode: "production",
-    output: {
-      clean: true,
-      path: path.resolve(process.cwd(), "./assets/"),
-      filename: `application.${version}.js`
-    },
     plugins: [
       new MiniCssExtractPlugin({
         runtime: true,

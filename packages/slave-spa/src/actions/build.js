@@ -13,7 +13,7 @@ export async function build_command() {
   const { version, namespace, master_provider } = otherAttr;
   await generate_entry({ master_provider, namespace });
   /** 与开发者的配置文件进行合并 **/
-  const webpack_build_config = await get_webpack_build_config({ master_provider, version, namespace });
+  const webpack_build_config = await get_webpack_build_config({ version, namespace, master_provider });
   const compose_webpack_config = merge(webpack_build_config, webpackConfig);
 
   /** 获取webpack的编译对象 **/

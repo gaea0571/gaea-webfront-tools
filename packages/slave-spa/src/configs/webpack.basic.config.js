@@ -1,5 +1,6 @@
 import path from "path";
 import { DefinePlugin } from "webpack";
+import WebpackAssetsManifest from "webpack-assets-manifest";
 
 import babel_config from "./rules/babel_config";
 import css_config from "./rules/css_config";
@@ -7,11 +8,16 @@ import less_config from "./rules/less_config";
 import scss_config from "./rules/scss_config";
 import file_loader_config from "./rules/file_loader_config";
 
-export default ({ master_provider, namespace }) => {
+export default ({ master_provider, version, namespace }) => {
   const default_config = {
     entry: [
       path.resolve(process.cwd(), "./.framework/entry.js")
     ],
+    output: {
+      clean: true,
+      path: path.resolve(process.cwd(), "./assets/"),
+      filename: `application.${version}.js`
+    },
     devtool: "source-map",
     resolve: {
       extensions: [".ts", ".tsx", ".js", ".jsx"],
@@ -30,6 +36,9 @@ export default ({ master_provider, namespace }) => {
       new DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
         "process.env.NAMESPACE": JSON.stringify(namespace)
+      }),
+      new WebpackAssetsManifest({
+        output: path.resolve(process.cwd(), "./assets/manifest.json")
       })
     ]
   };

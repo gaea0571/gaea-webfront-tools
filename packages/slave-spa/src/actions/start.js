@@ -18,13 +18,13 @@ import get_webpack_dev_config from "@/configs/webpack.dev.config";
 /** 启动本地开发服务 **/
 export async function start_command() {
   const { devServer, webpackConfig, ...otherAttr } = await load_config();
-  const { namespace, master_provider } = otherAttr;
+  const { version, namespace, master_provider } = otherAttr;
 
   /** 根据master配置决定生成什么样的入口文件 **/
   await generate_entry({ master_provider, namespace });
 
   /** 获取计算之后的webpack开发配置 **/
-  const dev_webpack_config = await get_webpack_dev_config({ namespace, master_provider });
+  const dev_webpack_config = await get_webpack_dev_config({ version, namespace, master_provider });
   /** 与开发者的配置文件进行合并 **/
   const compose_webpack_config = merge(dev_webpack_config, webpackConfig);
 

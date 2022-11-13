@@ -1,5 +1,6 @@
 import path from "path";
 import { DefinePlugin } from "webpack";
+import WebpackAssetsManifest from "webpack-assets-manifest";
 
 import babel_config from "./rules/babel_config";
 import css_config from "./rules/css_config";
@@ -12,6 +13,11 @@ export default {
     "systemjs",
     path.resolve(process.cwd(), "./.framework/entry.js")
   ],
+  output: {
+    clean: true,
+    path: path.resolve(process.cwd(), "./assets/"),
+    filename: `index.[fullhash].js`
+  },
   devtool: "source-map",
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
@@ -29,6 +35,9 @@ export default {
   plugins: [
     new DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
+    }),
+    new WebpackAssetsManifest({
+      output: path.resolve(process.cwd(), "./assets/manifest.json")
     })
   ]
 }

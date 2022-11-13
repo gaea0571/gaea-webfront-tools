@@ -18,15 +18,9 @@ if (router_config) {
   }));
 };
 
-const style_sheet_element = document.createElement("link");
-style_sheet_element.type = "text/css";
-style_sheet_element.rel = "stylesheet";
-
 export async function bootstrap(custmerProps) {
-  const { debug, resource } = custmerProps;
+  const { debug } = custmerProps;
   debug && console.log("tigger bootstrap");
-  style_sheet_element.href = resource.replace(".js", ".css");
-  document.body.appendChild(style_sheet_element);
   if (beforeWillFirstMount) {
     await beforeWillFirstMount(custmerProps);
   };
@@ -61,6 +55,5 @@ export async function update(custmerProps) {
 export async function unmount(custmerProps) {
   const { debug, domElement } = custmerProps;
   debug && console.log("tigger unmount");
-  style_sheet_element.parentNode.removeChild(style_sheet_element);
   ReactDOM.unmountComponentAtNode(domElement);
 };

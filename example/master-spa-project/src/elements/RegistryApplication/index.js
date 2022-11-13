@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import axios from "axios";
 import { mountRootParcel } from "single-spa";
 import React, { useRef, useEffect } from "react";
 // import propTypes from "prop-types";
@@ -29,13 +30,30 @@ export default function RegistryApplication({ namespace, resource, debug, onRout
   }, [onRouterConfig, onReceiveData]);
 
   useEffect(() => {
-    mountRootParcel(System.import(resource), {
-      debug,
-      resource,
-      eventbus: window.global_eventbus,
-      domElement: mount_container.current
-    });
-  });
+    (async () => {
+      const host_string = resource.replace("manifest.json", "");
+      const { data } = await axios({
+        method: "GET",
+        url: resource,
+        responseType: "json"
+      });
+      const entry_js = [host_string, data["main.js"]].join("");
+      const entry_css = [host_string, data["main.css"]].join("");
+      /** 挂载css样式表 **/
+      const style_sheet_element = document.createElement("link");
+      style_sheet_element.type = "text/css";
+      style_sheet_element.rel = "stylesheet";
+      style_sheet_element.href = entry_css;
+      mount_container.current.parentNode.appendChild(style_sheet_element);
+      /** 加载JavaScriptSystem模块 **/
+      mountRootParcel(System.import(entry_js), {
+        debug,
+        eventbus: window.global_eventbus,
+        domElement: mount_container.current
+      });
+    })();
+
+  }, []);
 
   return (
     <div ref={mount_container} className="mounted" style={{ width: "100%", height: "100%" }} />

@@ -9,11 +9,6 @@ import webpack_basic_config from "./webpack.basic.config";
 export default ({ slave_application_list }) => {
   return merge(webpack_basic_config, {
     mode: "production",
-    output: {
-      clean: true,
-      path: path.resolve(process.cwd(), "./assets/"),
-      filename: `index.[fullhash].js`
-    },
     plugins: [
       new DefinePlugin({
         "process.env.slave_application_list": JSON.stringify(slave_application_list)

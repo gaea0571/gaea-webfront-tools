@@ -5,13 +5,13 @@ module.exports = {
   },
   slave_application_list: {
     "development": {
-      "slave": "http://localhost:18600/application.js"
+      "slave": "http://localhost:18600/manifest.json"
     },
     "test": {
-      "slave": "http://localhost:18600/application.v1.js"
+      "slave": "http://localhost:18600/manifest.json"
     },
     "production": {
-      "slave": "http://localhost:18600/application.v1.js"
+      "slave": "http://localhost:18600/manifest.json"
     }
   }[process.env.NODE_ENV]
 };
