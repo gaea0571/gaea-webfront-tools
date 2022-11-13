@@ -1,4 +1,5 @@
 import path from "path";
+import WebpackBar from "webpackbar";
 import { DefinePlugin } from "webpack";
 import WebpackAssetsManifest from "webpack-assets-manifest";
 
@@ -15,6 +16,7 @@ export default ({ master_provider, version, namespace }) => {
     ],
     output: {
       clean: true,
+      publicPath: "/",
       path: path.resolve(process.cwd(), "./assets/"),
       filename: `application.${version}.js`
     },
@@ -33,6 +35,7 @@ export default ({ master_provider, version, namespace }) => {
       rules: [...babel_config, ...css_config({ namespace, master_provider }), ...less_config({ namespace, master_provider }), ...scss_config({ namespace, master_provider }), ...file_loader_config]
     },
     plugins: [
+      new WebpackBar({}),
       new DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
         "process.env.NAMESPACE": JSON.stringify(namespace)

@@ -1,47 +1,26 @@
-// import fs from "fs";
-import cors from "cors";
-import webpack from "webpack";
-import express from "express";
-// import { promisify } from "util";
-import { merge } from "webpack-merge";
-import hot_middleware from "webpack-hot-middleware";
-import dev_middleware from "webpack-dev-middleware";
-import history_fallback from "connect-history-api-fallback";
+import path from "path";
+import chokidar from "chokidar";
+import { fork } from "child_process";
 
-import load_config from "@/utils/load_config";
-import generate_entry from "@/utils/generate_entry";
-import get_webpack_dev_config from "@/configs/webpack.dev.config";
-
+const start_dev_server = path.resolve(__dirname, "../scripts/start_dev_server.js");
 
 /** 启动本地开发服务 **/
 export async function start_command() {
-  await generate_entry();
-  const server = express();
-  const { devServer, webpackConfig, slave_application_list } = await load_config();
-  const webpack_dev_config = await get_webpack_dev_config({ slave_application_list });
-  const compose_webpack_config = merge(webpack_dev_config, webpackConfig);
 
-  /** 获取webpack的编译对象 **/
-  const compiler = webpack(compose_webpack_config);
+  const fork_task = [];
 
-  /** 开发资源支持跨域访问 **/
-  server.use(cors());
-  /** 单页应用刷新始终返回index.html,不出现404 **/
-  server.use(history_fallback());
-  /** webpack开发服务中间件 **/
-  server.use(dev_middleware(compiler));
-  /** 热更新socket.io中间件 **/
-  server.use(hot_middleware(compiler));
+  fork_task.forEach((current_fork) => current_fork.kill());
+  const child_process = fork(start_dev_server);
+  fork_task.push(child_process);
 
-  server.get("/-/:namespace", (request, response) => {
-    const { namespace } = request.params;
-    if (namespace in slave_application_list) {
-      response.send({ code: 200, data: true, message: "" });
-    } else {
-      response.send({ code: 404, data: false, message: "未查询到注册的随从" });
-    };
+  chokidar.watch(process.cwd(), {
+    ignored: ["**/node_modules/**", "**/.framework/**"],
+    ignoreInitial: true,
+    persistent: true
+  }).on("all", () => {
+    fork_task.forEach((current_fork) => current_fork.kill());
+    const child_process = fork(start_dev_server);
+    fork_task.push(child_process);
   });
-
-  server.listen(devServer.port, () => console.log("server is runing"));
 
 };

@@ -3,6 +3,8 @@ module.exports = {
   devServer: {
     port: 18500
   },
+  proxy: {},
+  bundle_analyzer: false,
   slave_application_list: {
     "development": {
       "slave": "http://localhost:18600/manifest.json"

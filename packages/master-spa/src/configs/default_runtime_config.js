@@ -4,5 +4,7 @@ module.exports = {
   devServer: {
     port: 18500
   },
-  slave: {}
+  proxy: {},
+  bundle_analyzer: false,
+  slave_application_list: {}
 };

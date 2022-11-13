@@ -1,5 +1,7 @@
 import path from "path";
+import WebpackBar from "webpackbar";
 import { DefinePlugin } from "webpack";
+
 import WebpackAssetsManifest from "webpack-assets-manifest";
 
 import babel_config from "./rules/babel_config";
@@ -15,6 +17,7 @@ export default {
   ],
   output: {
     clean: true,
+    publicPath: "/",
     path: path.resolve(process.cwd(), "./assets/"),
     filename: `index.[fullhash].js`
   },
@@ -33,6 +36,7 @@ export default {
     rules: [...babel_config, ...css_config, ...less_config, ...scss_config, ...file_loader_config]
   },
   plugins: [
+    new WebpackBar({}),
     new DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
     }),

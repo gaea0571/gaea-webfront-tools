@@ -4,6 +4,8 @@
   "description": "GAEA前端工具生态",
   "scripts": {
     "start": "lerna run start --scope=\"*-spa-project\"",
+    "lib:watch": "lerna run watch --scope=\"@gaea-team/*-spa\"",
+    "lib:build": "lerna run build --scope=\"@gaea-team/*-spa\"",
     "build:test": "lerna run build:test --scope=\"*-spa-project\"",
     "build:prod": "lerna run build:prod --scope=\"*-spa-project\"",
     "publish": "lerna run publish --scope=\"*-spa-project\"",
