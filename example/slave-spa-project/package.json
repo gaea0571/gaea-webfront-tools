@@ -8,7 +8,7 @@
     "start": "cross-env NODE_ENV=development slave-spa start",
     "build:test": "cross-env NODE_ENV=test slave-spa build",
     "build:prod": "cross-env NODE_ENV=production slave-spa build",
-    "publish": "http-server --cors --port 18600 assets"
+    "pack": "http-server --cors --port 18600 assets"
   },
   "keywords": [],
   "author": "",

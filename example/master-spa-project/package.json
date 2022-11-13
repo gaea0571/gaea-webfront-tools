@@ -8,7 +8,7 @@
     "start": "cross-env NODE_ENV=development master-spa start",
     "build:test": "cross-env NODE_ENV=test master-spa build",
     "build:prod": "cross-env NODE_ENV=production master-spa build",
-    "publish": "http-server --cors --port 18500 assets"
+    "pack": "http-server --cors --port 18500 assets"
   },
   "keywords": [],
   "author": "",
