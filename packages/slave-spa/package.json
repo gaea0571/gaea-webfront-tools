@@ -1,5 +1,5 @@
 {
-  "name": "@gaea/slave-spa",
+  "name": "@gaea-team/slave-spa",
   "version": "1.0.0",
   "description": "多命令模式的命令行脚手架",
   "main": "./dist/index.js",

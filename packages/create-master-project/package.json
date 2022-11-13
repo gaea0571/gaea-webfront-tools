@@ -1,5 +1,5 @@
 {
-  "name": "@gaea/create-master-project",
+  "name": "@gaea-team/create-master-project",
   "version": "1.0.0",
   "description": "用于创建单命令行工具的脚手架",
   "main": "./dist/index.js",
