@@ -1,5 +1,4 @@
 import React from "react";
-import { message, notification } from "antd";
 import { Routes, Route } from "react-router-dom";
 
 import TestPage from "@/pages/TestPage";
