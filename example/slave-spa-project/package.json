@@ -20,7 +20,7 @@
     "react-router-dom": "6.4.3"
   },
   "devDependencies": {
-    "@gaea-team/slave-spa": "2.5.0",
+    "@gaea-team/slave-spa": "2.6.0",
     "cross-env": "7.0.3"
   }
 }
