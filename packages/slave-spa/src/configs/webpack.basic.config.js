@@ -41,7 +41,7 @@ export default ({ master_provider, version, namespace }) => {
         "process.env.NAMESPACE": JSON.stringify(namespace)
       }),
       new WebpackAssetsManifest({
-        output: path.resolve(process.cwd(), "./assets/manifest.json")
+        output: path.resolve(process.cwd(), `./assets/manifest.${version}.json`)
       })
     ]
   };
