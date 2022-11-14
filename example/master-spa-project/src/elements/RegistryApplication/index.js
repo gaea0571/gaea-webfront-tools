@@ -15,16 +15,16 @@ export default function RegistryApplication({ namespace, resource, debug, onRout
   useEffect(() => {
     /** 监听随从发送的路由配置 **/
     window.global_eventbus.on("router_config", (message) => {
-      const { namespace: message_name, router_config } = JSON.parse(message);
+      const { namespace: message_name } = JSON.parse(message);
       if (message_name === namespace) {
-        onRouterConfig(router_config);
+        onRouterConfig(JSON.parse(message));
       };
     });
     /** 监听随从发送的信息 **/
     window.global_eventbus.on("data", (message) => {
-      const { namespace: message_name, data } = JSON.parse(message);
+      const { namespace: message_name } = JSON.parse(message);
       if (message_name === namespace) {
-        onReceiveEvent(data);
+        onReceiveEvent(JSON.parse(message));
       };
     });
   }, [onRouterConfig, onReceiveData]);
@@ -56,7 +56,7 @@ export default function RegistryApplication({ namespace, resource, debug, onRout
   }, []);
 
   return (
-    <div ref={mount_container} className="mounted" style={{ width: "100%", height: "100%" }} />
+    <div ref={mount_container} className="mounted" style={{ width: "100%" }} />
   )
 };
 

@@ -7,7 +7,8 @@ module.exports = {
   bundle_analyzer: false,
   slave_application_list: {
     "development": {
-      "slave": "http://localhost:18600/v1/manifest.json"
+      "slave1": "http://localhost:18700/v1/manifest.json",
+      "slave2": "http://localhost:18800/v1/manifest.json"
     },
     "test": {
       "slave": "http://localhost:18600/v1/manifest.json"

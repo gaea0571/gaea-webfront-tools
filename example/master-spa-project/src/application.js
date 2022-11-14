@@ -2,16 +2,16 @@ import { Space } from "antd";
 import { NavLink } from "react-router-dom";
 import React, { useState, useCallback } from "react";
 
-
 import RegistryApplication from "@/elements/RegistryApplication";
 
 export function RootComponent() {
 
-  const [router_config, change_router] = useState([]);
+  const [compose_router_config, change_compose_router_config] = useState({});
 
-  const handleChangeRouter = useCallback((current_router_config) => {
-    change_router([...router_config, ...current_router_config]);
-  }, [router_config]);
+  const handleChangeRouter = useCallback(({ namespace, router_config }) => {
+    compose_router_config[namespace] = router_config;
+    change_compose_router_config({ ...compose_router_config });
+  }, [compose_router_config]);
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
@@ -21,7 +21,7 @@ export function RootComponent() {
       </Space>
       <div>
         <div>装载的子应用路由</div>
-        <pre>{JSON.stringify(router_config, null, " ")}</pre>
+        <pre>{JSON.stringify(compose_router_config, null, " ")}</pre>
       </div>
       {Object.keys(process.env.slave_application_list).map((namespace) => {
         return (
