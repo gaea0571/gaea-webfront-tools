@@ -13,7 +13,7 @@ export default async ({ version, namespace, master_provider }) => {
       new MiniCssExtractPlugin({
         runtime: true,
         linkType: "text/css",
-        filename: `application.${version}.css`
+        filename: `application.[fullhash].css`
       })
     ]
   });

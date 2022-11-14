@@ -13,10 +13,10 @@ import webpack_basic_config from "./webpack.basic.config";
 const no_master_html_template = path.resolve(__dirname, "../../templates/no_master_html_template.ejs");
 const with_master_html_template = path.resolve(__dirname, "../../templates/with_master_html_template.ejs");
 
-export default async ({ master_provider, namespace }) => {
+export default async ({ version, namespace, master_provider }) => {
 
   /** 基础的webpack配置 **/
-  const basic_config = webpack_basic_config({ master_provider, namespace });
+  const basic_config = webpack_basic_config({ version, namespace, master_provider });
 
   const no_master_html_template_content = await promisify(fs.readFile)(no_master_html_template, "utf-8");
   const with_master_html_template_content = await promisify(fs.readFile)(with_master_html_template, "utf-8");
@@ -31,7 +31,7 @@ export default async ({ master_provider, namespace }) => {
       new MiniCssExtractPlugin({
         runtime: true,
         linkType: "text/css",
-        filename: `application.css`
+        filename: `application.[fullhash].css`
       }),
       new HotModuleReplacementPlugin(),
       master_provider ? (() => {

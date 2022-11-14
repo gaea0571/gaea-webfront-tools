@@ -9,17 +9,11 @@ import less_config from "./rules/less_config";
 import scss_config from "./rules/scss_config";
 import file_loader_config from "./rules/file_loader_config";
 
-export default ({ master_provider, version, namespace }) => {
+export default ({ version, namespace, master_provider }) => {
   const default_config = {
     entry: [
       path.resolve(process.cwd(), "./.framework/entry.js")
     ],
-    output: {
-      clean: true,
-      publicPath: "/",
-      path: path.resolve(process.cwd(), "./assets/"),
-      filename: `application.${version}.js`
-    },
     devtool: "source-map",
     resolve: {
       extensions: [".ts", ".tsx", ".js", ".jsx"],
@@ -41,21 +35,25 @@ export default ({ master_provider, version, namespace }) => {
         "process.env.NAMESPACE": JSON.stringify(namespace)
       }),
       new WebpackAssetsManifest({
-        output: path.resolve(process.cwd(), `./assets/manifest.${version}.json`)
+        output: path.resolve(process.cwd(), `./assets/${version}/manifest.json`)
       })
     ]
   };
 
   if (master_provider) {
     default_config.output = {
-      path: path.resolve(process.cwd(), "./assets/"),
-      filename: `application.js`,
+      clean: true,
+      publicPath: `/${version}/`,
+      filename: `application.[fullhash].js`,
+      path: path.resolve(process.cwd(), `./assets/${version}/`),
       library: { type: "system" }
     };
   } else {
     default_config.output = {
-      path: path.resolve(process.cwd(), "./assets/"),
-      filename: `application.js`
+      clean: true,
+      publicPath: `/${version}/`,
+      path: path.resolve(process.cwd(), `./assets/${version}/`),
+      filename: `application.[fullhash].js`
     };
   };
 
