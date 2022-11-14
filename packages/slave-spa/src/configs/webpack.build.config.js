@@ -9,6 +9,13 @@ export default async ({ version, namespace, master_provider }) => {
 
   return merge(basic_config, {
     mode: "production",
+    output: {
+      clean: true,
+      publicPath: `/${version}/`,
+      filename: `application.[fullhash].js`,
+      path: path.resolve(process.cwd(), `./assets/${version}/`),
+      library: { type: "system" }
+    },
     plugins: [
       new MiniCssExtractPlugin({
         runtime: true,
