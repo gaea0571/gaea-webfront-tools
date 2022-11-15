@@ -26,8 +26,3 @@ program
   .action(publish_command);
 
 program.parse();
-
-
-
-
-

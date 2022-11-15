@@ -8,13 +8,15 @@
     "start": "cross-env NODE_ENV=development slave-spa start",
     "build:test": "cross-env NODE_ENV=test slave-spa build",
     "build:prod": "cross-env NODE_ENV=production slave-spa build",
-    "pack": "http-server --cors --port 18600 assets"
+    "publish": "cross-env NODE_ENV=test slave-spa publish"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "antd": "4.24.1",
+    "formdata-node": "2.5.0",
+    "formdata-polyfill": "4.0.10",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-router-dom": "6.4.3"
