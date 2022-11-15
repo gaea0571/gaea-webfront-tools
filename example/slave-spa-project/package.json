@@ -6,9 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development slave-spa start",
-    "build:test": "cross-env NODE_ENV=test slave-spa build",
-    "build:prod": "cross-env NODE_ENV=production slave-spa build",
-    "publish": "cross-env NODE_ENV=test slave-spa publish"
+    "build": "cross-env NODE_ENV=production slave-spa build",
+    "publish": "slave-spa publish"
   },
   "keywords": [],
   "author": "",

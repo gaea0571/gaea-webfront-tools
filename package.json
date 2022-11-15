@@ -6,10 +6,8 @@
     "start": "lerna run start --scope=\"*-spa-project\"",
     "lib:watch": "lerna run watch --scope=\"@gaea-team/*-spa\"",
     "lib:build": "lerna run build --scope=\"@gaea-team/*-spa\"",
-    "build:test": "lerna run build:test --scope=\"*-spa-project\"",
-    "build:prod": "lerna run build:prod --scope=\"*-spa-project\"",
-    "pick:test": "lerna run pick:test --scope=\"*-spa-project\"",
-    "pick:prod": "lerna run pick:prod --scope=\"*-spa-project\"",
+    "build": "lerna run build --scope=\"*-spa-project\"",
+    "pick": "lerna run pick --scope=\"*-spa-project\"",
     "sub:pull": "sh ./scripts/examples-pull.sh",
     "sub:push": "sh ./scripts/examples-push.sh"
   },

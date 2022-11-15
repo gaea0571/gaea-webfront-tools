@@ -29,6 +29,16 @@ export default {
       "@": path.resolve(process.cwd(), "./src/")
     }
   },
+  externalsType: "var",
+  externals: {
+    antd: "window.public.antd",
+    axios: "window.public.axios",
+    lodash: "window.public.lodash",
+    moment: "window.public.moment",
+    "react": "window.public.React",
+    "react-dom": "window.public.ReactDOM",
+    "react-router-dom": "window.public.ReactRouterDOM"
+  },
   optimization: {
     nodeEnv: false
   },

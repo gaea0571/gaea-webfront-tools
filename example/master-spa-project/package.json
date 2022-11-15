@@ -6,10 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development master-spa start",
-    "build:test": "cross-env NODE_ENV=test master-spa build",
-    "build:prod": "cross-env NODE_ENV=production master-spa build",
-    "pick:test": "cross-env NODE_ENV=test master-spa pick",
-    "pick:prod": "cross-env NODE_ENV=production master-spa pick"
+    "build": "cross-env NODE_ENV=production master-spa build",
+    "pick": "cross-env NODE_ENV=production master-spa pick"
   },
   "keywords": [],
   "author": "",
