@@ -1,6 +1,6 @@
 {
   "name": "@gaea-team/master-spa",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "多命令模式的命令行脚手架",
   "main": "./dist/index.js",
   "scripts": {
