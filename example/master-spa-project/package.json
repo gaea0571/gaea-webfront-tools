@@ -12,10 +12,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@gaea-team/master-spa": "3.2.0",
-    "cross-env": "7.0.3"
-  },
   "dependencies": {
     "antd": "4.24.1",
     "formdata-node": "2.5.0",
@@ -23,5 +19,9 @@
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-router-dom": "6.4.3"
+  },
+  "devDependencies": {
+    "@gaea-team/master-spa": "3.4.0",
+    "cross-env": "7.0.3"
   }
 }
