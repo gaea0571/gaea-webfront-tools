@@ -22,7 +22,7 @@ export default function TestPage(props) {
     return () => {
       clearInterval(timmer);
       console.log("done");
-    }
+    };
   }, []);
 
   return (

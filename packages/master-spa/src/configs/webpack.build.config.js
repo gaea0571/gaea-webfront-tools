@@ -11,6 +11,7 @@ import webpack_basic_config from "./webpack.basic.config";
 export default ({ slave_application_list }) => {
   return merge(webpack_basic_config, {
     mode: "production",
+    devtool: false,
     optimization: {
       minimize: true,
       minimizer: [

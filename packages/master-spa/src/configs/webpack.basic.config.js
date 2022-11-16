@@ -29,16 +29,20 @@ export default {
       "@": path.resolve(process.cwd(), "./src/")
     }
   },
-  externalsType: "var",
-  externals: {
-    antd: "window.public.antd",
-    axios: "window.public.axios",
-    lodash: "window.public.lodash",
-    moment: "window.public.moment",
-    "react": "window.public.React",
-    "react-dom": "window.public.ReactDOM",
-    "react-router-dom": "window.public.ReactRouterDOM"
-  },
+  // externalsType: "var",
+  // externals: {
+  //   antd: "window.public.antd",
+  //   axios: "window.public.axios",
+  //   lodash: "window.public.lodash",
+  //   moment: "window.public.moment",
+  //   "react": "window.public.React",
+  //   "react-dom": "window.public.ReactDOM",
+  //   "@ant-design/icons": "window.public.AntdIcon",
+  //   "@ant-design/colors": "window.public.AntdColor",
+  //   "@ant-design/icons-svg": "window.public.AntdIconSvg",
+  //   "@ant-design/react-slick": "window.public.AntdReactSlick",
+  //   "react-router-dom": "window.public.ReactRouterDOM"
+  // },
   optimization: {
     nodeEnv: false
   },
